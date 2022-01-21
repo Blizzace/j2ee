@@ -12,33 +12,29 @@ import javax.persistence.OneToOne;
 @Entity
 public class Car extends Vehicule {
 
-	private int numberOfSeats; // Nombre de place
+	private int numberOfSeats; 
 	
-	//------------------Constructeurs------------------//
 
-	//Champ à champ
 	public Car(int numberOfSeats) {
 		super();
 		this.setnumberOfSeats(numberOfSeats);
 		
 	}
 	
-	//Par défaut
+	
 	public Car() {
 		super();
 		
 	}
 
-	//Champ à champ bis
+	
 	public Car(String plateNumber, String brand, int price,int numberOfSeats) {
 		super(plateNumber,brand,price);
 		this.setnumberOfSeats(numberOfSeats);
 		
 	}
 
-	//------------------Constructeurs------------------//
-	
-	//------------------Getter/Setter------------------//
+
 
 	public int getnumberOfSeats() {
 		return this.numberOfSeats;
@@ -48,17 +44,15 @@ public class Car extends Vehicule {
 		this.numberOfSeats = numberOfSeats;
 	}
 
-	//------------------Getter/Setter------------------//
+
 
 	public String toString() {
 
-        String desc = "\n\n" ;
-        desc += "------------------Car------------------\n" ;
+        String desc = "\n" ;
         desc += "Plaque  = " + super.getPlateNumber() + "\n" ;
         desc += "Marque  = " + super.getBrand() + "\n" ;
         desc += "Prix = " + super.getPrice() + "\n" ;
-		desc += "Nombre de place = " + this.numberOfSeats + "\n" ;
-        desc += "------------------Car------------------\n" ;
+		desc += "Nombre de place = " + this.numberOfSeats + "\n";
         return desc ;
     }
 }
