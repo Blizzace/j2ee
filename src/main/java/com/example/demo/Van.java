@@ -4,24 +4,34 @@ import javax.persistence.Entity;
 
 @Entity
 public class Van extends Vehicule{
-	private int maxWeight;
+
+	private int maxWeight; // Taille max du van
 	
-	public Van() {
-		super();
-		
-	}
-	
+	//------------------Constructeurs------------------//
+
+	//Champ à champ
 	public Van(int maxWeight) {
 		super();
 		this.setMaxWeight(maxWeight);
 		
 	}
-	
+
+	//Champ à champ bis
 	public Van(String plateNumber, String brand, int price,int maxWeight) {
 		super(plateNumber,brand,price);
 		this.setMaxWeight(maxWeight);
 		
 	}
+	
+	//Par défaut 
+	public Van() {
+		super();
+		
+	}
+
+	//------------------Constructeurs------------------//
+
+	//------------------Getter/Setter------------------//
 	
 	public int getMaxWeight() {
 		return this.maxWeight;
@@ -30,14 +40,19 @@ public class Van extends Vehicule{
 	public void setMaxWeight(int maxWeight) {
 		this.maxWeight = maxWeight;
 	}
+
+	//------------------Getter/Setter------------------//
 	
-	@Override
 	public String toString() {
-		return "Van [plateNumber=" + super.getPlateNumber() 
-				+ ", brand=" + super.getBrand() 
-				+ ", price=" + super.getPrice() 
-				+ ", max Weight=" + maxWeight + "]\n";
-	}
-	
+
+        String desc = "\n\n" ;
+        desc += "------------------van------------------\n" ;
+        desc += "Plaque  = " + super.getPlateNumber() + "\n" ;
+        desc += "Marque  = " + super.getBrand() + "\n" ;
+        desc += "Prix = " + super.getPrice() + "\n" ;
+		desc += "Taille max = " + this.maxWeight + "\n" ;
+        desc += "------------------van------------------\n" ;
+        return desc ;
+    }
 	
 }

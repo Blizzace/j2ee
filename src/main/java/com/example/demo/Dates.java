@@ -1,16 +1,14 @@
 package com.example.demo;
 
 import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Dates {
@@ -21,9 +19,11 @@ public class Dates {
     Vehicule vehicule;
     Person person;
     
- 
-    @OneToOne
-    @JsonIgnore
+   
+    
+	
+    
+    @OneToOne(cascade=CascadeType.ALL)
     public Vehicule getVehicule() {
     	return vehicule;
     }
@@ -70,9 +70,9 @@ public class Dates {
 	
     @Override
     public String toString() {
-        return "Dates[" +
+        return "Dates{" +
                 "begin='" + begin + '\'' +
                 ", end='" + end + '\'' +
-                "]\n";
+                '}';
     }
 }

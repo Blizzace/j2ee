@@ -2,21 +2,19 @@ package com.example.demo;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import javax.persistence.OneToOne;
 
 @Entity
 public class Person {
 
     String nom;
     int age;
-    Collection<Dates> dates=new ArrayList<Dates>();
+    Collection<Dates> dates = new ArrayList<Dates>();
 
     
     @Id
@@ -36,8 +34,7 @@ public class Person {
         this.age = age;
     }
     
-    @OneToMany(mappedBy="person")
-    @JsonIgnore
+    @OneToMany(mappedBy="person", cascade= CascadeType.ALL)
    	public Collection<Dates> getDates() {
    		return dates;
    	}

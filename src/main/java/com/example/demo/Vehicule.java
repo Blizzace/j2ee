@@ -6,27 +6,36 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
 @Entity 
 @DiscriminatorColumn(name="type_Vehicule", discriminatorType=DiscriminatorType.STRING)
 public class Vehicule {
-	private String plateNumber;
-	private String brand;
-	private int price;
-	private boolean rented; 
-	private Dates dates;
 
-	
-	public Vehicule() {
-		super();
-	}
-	
+	private String plateNumber; // Plaque d'imatriculation
+	private String brand; // Marque du véhicule
+	private int price; // Prix du véhicule
+	private boolean rented; // Savoir si le véhicule est loué ou non 
+	private Dates dates; // Date de location du véhicule s'il est loué 
+
+	//------------------Constructeurs------------------//
+
+	//Champ à champ
 	public Vehicule(String plateNumber, String brand, int price) {
-		super();
-		this.plateNumber = plateNumber;
-		this.brand = brand;
-		this.price = price;
+
+		this.setPlateNumber(plateNumber);
+		this.setBrand(brand);
+		this.setPrice(price);
 		
 	}
+
+	//Par défaut 
+	public Vehicule() {
+
+	}
+
+	//------------------Constructeurs------------------//
+
+	//------------------Getter/Setter------------------//
 	
 	@Id
 	public String getPlateNumber() {
@@ -71,13 +80,19 @@ public class Vehicule {
 		this.dates = dates;
 	}
 
+	//------------------Getter/Setter------------------//
 		
-	@Override
 	public String toString() {
-		return "Vehicule "
-				+ "[plateNumber=" + plateNumber + ", "
-				+ "brand=" + brand + ", "
-				+ "price=" + price + "]\n";
-	}
+
+        String desc = "\n\n" ;
+        desc += "------------------Vehicule------------------\n" ;
+        desc += "Plaque  = " + this.plateNumber + "\n" ;
+        desc += "Marque  = " + this.brand + "\n" ;
+        desc += "Prix = " + this.price + "\n" ;
+		desc += "Loué ? = " + this.rented + "\n" ;
+		desc += "date = " + this.dates + "\n" ;
+        desc += "------------------Vehicule------------------\n" ;
+        return desc ;
+    }
 
 }

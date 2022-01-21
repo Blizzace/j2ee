@@ -9,14 +9,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class DemoApplication {
+public class RentMyCarApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(RentMyCarApplication.class, args);
 	}
 	
 	@Bean
-	public CommandLineRunner demo(VehiculeRepository vehiculeRepository) {
+	public CommandLineRunner demo(PersonRepository personRepository,DatesRepository datesRepository) {
 		return (args) -> {
 			Person tintin = new Person();
 			tintin.setAge(20);
@@ -57,6 +57,8 @@ public class DemoApplication {
 			car_1.setPrice(23400);
 			car_1.setnumberOfSeats(4);
 			
+			kamy.addDates(date);
+			tintin.addDates(date_2);
 		 
 			
 			van_1.setDates(date_2);
@@ -70,8 +72,8 @@ public class DemoApplication {
 			
 			date.setVehicule(car_1);
 		
-			vehiculeRepository.save(van_1);
-			vehiculeRepository.save(car_1);
+			datesRepository.save(date);
+			datesRepository.save(date_2);
 
 		};
 	}

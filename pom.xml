@@ -41,10 +41,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			
 		</dependency>
+
 <dependency>
-    <groupId>com.fasterxml</groupId>
-    <artifactId>jackson-xml-databind</artifactId>
-    <version>0.6.2</version>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+	<version>1.4.200</version>
+    <scope>runtime</scope>
 </dependency>
 	</dependencies>
 
